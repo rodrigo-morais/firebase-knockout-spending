@@ -1,0 +1,27 @@
+{
+  "name": "firebase-knockout-spending",
+  "version": "0.1.0",
+  "description": "An app to control spending. This app is used to test features of Firebase developing with KnockoutJS.",
+  "homepage": "https://github.com/rodrigo-morais/firebase-knockut-spending",
+  "main": "./index.html",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodrigo-morais/firebase-knockout-spending.git"
+  },
+  "keywords": [
+    "Knockout",
+    "spending",
+    "Firebase"
+  ],
+  "author": "Rodrigo Morais",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rodrigo-morais/firebase-knockout-spending/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
