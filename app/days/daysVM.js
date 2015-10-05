@@ -1,4 +1,4 @@
-define(['knockout', 'firebase', 'moment', '../config', '../day/dayVM'], function(ko, firebase, moment, config, day) {
+define(['knockout', 'firebase', 'moment', 'config', 'dayViewModel'], function(ko, firebase, moment, config, day) {
     return function daysViewModel() {
         var self = this,
         	firebase_url = new config().url,

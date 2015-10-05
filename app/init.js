@@ -6,7 +6,10 @@ requirejs.config({
         'knockout': '../vendor/knockout/dist/knockout',
         'bootstrap': '../vendor/bootstrap/dist/js/bootstrap.min',
         'firebase': '../vendor/firebase/firebase',
-        'moment': '../vendor/moment/moment'
+        'moment': '../vendor/moment/moment',
+        'config': 'config',
+        'dayViewModel': 'day/dayVM',
+        'daysViewModel': 'days/daysVM'
     },
     "shim": {
         'knockout': {
