@@ -1,5 +1,5 @@
 'use strict';
 
-require(['knockout', 'firebase'], function(ko, firebase) {
-    
+require(['knockout', 'days/daysVM'], function(ko, days) {
+    ko.applyBindings(new days());
 });

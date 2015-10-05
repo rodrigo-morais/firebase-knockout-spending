@@ -5,7 +5,8 @@ requirejs.config({
         'jquery': '../vendor/jquery/dist/jquery.min',
         'knockout': '../vendor/knockout/dist/knockout',
         'bootstrap': '../vendor/bootstrap/dist/js/bootstrap.min',
-        'firebase': '../vendor/firebase/firebase'
+        'firebase': '../vendor/firebase/firebase',
+        'moment': '../vendor/moment/moment'
     },
     "shim": {
         'knockout': {
@@ -14,6 +15,9 @@ requirejs.config({
         },
         'firebase': {
             exports: "firebase"
+        },
+        'moment': {
+        	exports: 'moment'
         }
     },
     deps: ["app"]
