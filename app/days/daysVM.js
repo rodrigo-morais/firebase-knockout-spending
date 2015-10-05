@@ -5,6 +5,7 @@ define(['knockout', 'firebase', 'moment', '../config', '../day/dayVM'], function
         	today = moment().format('YYYY-MM-DD');
 
         self.days = ko.observableArray([]);
+        self.today_total = ko.observable();
         
     	var spending = new Firebase(firebase_url);
 
@@ -19,10 +20,26 @@ define(['knockout', 'firebase', 'moment', '../config', '../day/dayVM'], function
 		    console.log("The read failed: " + errorObject.code);
 		});
 
-		spending.orderByChild("date").on("value", (snapshot) => {
-		    var spendings = snapshot.val();
+		spending.orderByChild("date").on("value", function(snapshot){
+		    var spending = snapshot.val().spending,
+	    		total = 0;
 
-		    console.log(spendings);
+		    for(var key in spending){
+		    	var spent = spending[key],
+		    		_day = new day();
+
+		    	if(spent.date === today){
+			    	_day.date(spent.date);
+			    	_day.item(spent.item);
+			    	_day.value('$ ' +  parseFloat(spent.value).toFixed(2));
+
+			    	total = total + parseFloat(spent.value);
+
+			    	self.days.push(_day);
+		    	}
+
+		    	self.today_total(total.toFixed(2));
+		    }
 		},
 		(errorObject) => {
 		    console.log("The read failed: " + errorObject.code);
