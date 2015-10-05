@@ -5,6 +5,51 @@
         <script type="text/javascript" data-main="app/init.js" src="vendor/requirejs/require.js"></script>
     </head>
     <body>
-        
-    </body>
+	    <div class="panel panel-primary col-md-4">
+	      <div class="panel-heading">Inform your spendings</div>
+	      <div class="panel-body">
+	        <form id="spending">
+	          <div class="form-group">
+	            <label for="dateSpending">Date</label>
+	            <input type="date" class="form-control" id="dateSpending" placeholder="Enter date" />
+	          </div>
+	          <div class="form-group">
+	            <label for="item">Where</label>
+	            <input type="text" class="form-control" id="item" placeholder="Enter where you spent" />
+	          </div>
+	          <div class="form-group">
+	            <label for="value">Value</label>
+	            <input type="number" id="value" />
+	          </div>
+	          <button id="send" type="submit" class="btn btn-default">Submit</button>
+	        </form>
+	      </div>
+	    </div>
+
+	    <div class="panel panel-primary col-md-7 pull-right per-day">
+	        <div class="panel-heading">List of spendings per day</div>
+	        <div class="panel-body">
+	            <div id="daily">
+	                <ul></ul>
+	            </div>
+	            <div class="total">
+	                <label>Total:</label>
+	                <span></span>
+	            </div>
+	        </div>
+	    </div>
+
+	    <div class="panel panel-primary col-md-12 per-month">
+	        <div class="panel-heading">List of spendings per month</div>
+	        <div class="panel-body">
+	            <div id="monthly">
+	                <ul class="months"></ul>
+	            </div>
+	            <div class="total">
+	                <label>Total:</label><span id="total"></span>
+	                <label>Average:</label><span id="average"></span>
+	            </div>
+	        </div>
+	    </div>
+	</body>
 </html>
