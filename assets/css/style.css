@@ -1,29 +1,8 @@
-body
-{
-    margin: 0;
-    overflow: hidden;
-}
-
-main
-{
-    width: 85%;
-    height: 100%;
-    display: inline-block;
-    position: relative;
-    float: left;
-    overflow: hidden;
-}
-
 .panel
 {
-    height: 50%;
-    margin-top: 10%;
-}
-
-.daily-filter,
-.monthly-filter
-{
-    margin-top: 2%;
+    top: 4px;
+    left: 4px;
+    margin-right: 10px;
 }
 
 #daily
@@ -39,9 +18,7 @@ main
 
 .per-day
 {
-    max-height: 75.5vh;
-    height: 75%;
-    margin-top: 4%;
+    max-height: 46.5vh
 }
 
 #daily ul li
@@ -88,9 +65,11 @@ main
 
 .per-month
 {
-    max-height: 75.5vh;
-    height: 75%;
-    margin-top: 4%;
+    float: left;
+    clear: both;
+    max-height: 46vh;
+    min-height: 46vh;
+    width: 99.3%
 }
 
 .per-month .total
@@ -104,6 +83,11 @@ main
 #monthly ul
 {
     list-style: none;
+}
+
+.per-month
+{
+    max-height: 46.5vh
 }
 
 #monthly ul li
