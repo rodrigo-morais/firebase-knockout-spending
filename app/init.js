@@ -7,6 +7,7 @@ requirejs.config({
         'bootstrap': '../vendor/bootstrap/dist/js/bootstrap.min',
         'firebase': '../vendor/firebase/firebase',
         'moment': '../vendor/moment/moment',
+        'malihu': '../vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar',
         'config': 'config',
         'dayViewModel': 'day/dayVM',
         'daysViewModel': 'days/daysVM',
@@ -17,6 +18,10 @@ requirejs.config({
         'knockout': {
             exports: "knockout",
             deps: ["jquery"]
+        },
+        'malihu': {
+        	exports: 'malihu',
+        	deps: ['jquery']
         },
         'firebase': {
             exports: "firebase"
