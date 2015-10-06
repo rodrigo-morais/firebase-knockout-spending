@@ -9,7 +9,8 @@ requirejs.config({
         'moment': '../vendor/moment/moment',
         'config': 'config',
         'dayViewModel': 'day/dayVM',
-        'daysViewModel': 'days/daysVM'
+        'daysViewModel': 'days/daysVM',
+        'monthViewModel': 'month/monthVM',
     },
     "shim": {
         'knockout': {
