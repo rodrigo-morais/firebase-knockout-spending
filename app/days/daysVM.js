@@ -33,12 +33,5 @@ define(['knockout', 'firebase', 'moment', 'config', 'dayViewModel'], function(ko
 		function(errorObject){
 		    console.log("The read failed: " + errorObject.code);
 		});
-
-		spending.orderByChild("date").on("value", function(snapshot){
-		    var spending = snapshot.val();
-		},
-		(errorObject) => {
-		    console.log("The read failed: " + errorObject.code);
-		});
 	};
 });
