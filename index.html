@@ -30,7 +30,7 @@
 	        <div class="panel-heading">List of spendings per day</div>
 	        <div class="panel-body">
 	            <div id="daily">
-	                <ul data-bind="foreach: days">
+	                <ul class="days" data-bind="foreach: days">
 	                	<li>
 	                		<span class="label">Date:</span><span class="value" data-bind="text: date"></span>
     						<span class="label">Item:</span><span class="value" data-bind="text: item"></span>
@@ -49,7 +49,12 @@
 	        <div class="panel-heading">List of spendings per month</div>
 	        <div class="panel-body">
 	            <div id="monthly">
-	                <ul class="months">
+	                <ul class="months" data-bind="foreach: months">
+	                	<li>
+	                		<span class="label">Month:</span><span class="value" data-bind="text: date"></span>
+    						<span class="label">Total:</span><span class="value" data-bind="text: total"></span>
+							<span class="label">Average:</span><span class="value" data-bind="text: average"> $</span>
+						</li>
 	                </ul>
 	            </div>
 	            <div class="total">

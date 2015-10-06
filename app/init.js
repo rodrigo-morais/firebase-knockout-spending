@@ -11,6 +11,7 @@ requirejs.config({
         'dayViewModel': 'day/dayVM',
         'daysViewModel': 'days/daysVM',
         'monthViewModel': 'month/monthVM',
+        'monthsViewModel': 'months/monthsVM'
     },
     "shim": {
         'knockout': {
