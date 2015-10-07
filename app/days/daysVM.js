@@ -8,7 +8,7 @@ define(['knockout', 'firebase', 'moment', 'config', 'dayViewModel'], function(ko
         self.days = ko.observableArray([]);
         self.today_total = ko.observable(0);
 
-        var _addToday = function(spent){
+        self._addToday = function(spent){
         	var total = 0,
         		_day = new day();
 

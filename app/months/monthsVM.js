@@ -2,40 +2,42 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
     return function monthsViewModel() {
         var self = this,
         	firebase_url = new config().url,
-        	spending = new Firebase(firebase_url),
-        	last_year = 0,
-        	last_month = 0,
-        	count = 0;
+        	spending = new Firebase(firebase_url);
 
         self.months = ko.observableArray([]);
 
         self._add_month = function(spent){
-        	var year = new Date(spent.date).getFullYear(),
-	    		n_month = new Date(spent.date).getMonth() + 1,
+        	var date = new Date(spent.date),
+        		year,
+	    		n_month,
 	    		total = 0,
 	    		_month = new month(),
-	    		last = self.months().length > 0 ? self.months()[self.months().length - 1] : undefined;
+	    		month_name,
+	    		last;
 
-    		if(last && (last_month === n_month && last_year === year)){
+	    	date.setDate(date.getDate() + 1);
+    		year = date.getFullYear();
+    		n_month = date.getMonth();
+    		month_name = moment(date).format('MMMM');
+	    	last = self.months().filter(function(__month){return __month.month() === month_name && __month.year() === year });
+
+	    	last = last.length > 0 ? last[0] : undefined;
+
+    		if(last){
 				last.total(last.total() + parseFloat(spent.value));
-				
-				count = count + 1;
+				last.spending(last.spending() + 1);
 
-				last.average(last.total() / count);
+				last.average(last.total() / last.spending());
 			}
 			else{
-				_month.month(moment(new Date(spent.date)).format('MMMM'));
+				_month.month(month_name);
 				_month.year(year);
 				_month.total(parseFloat(spent.value));
 				_month.average(parseFloat(spent.value));
+				_month.spending(1);
 
 				self.months.push(_month);
-
-				count = 1;
 			}
-
-			last_month = n_month;
-			last_year = year;	
         };
 
 		

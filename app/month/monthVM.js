@@ -6,6 +6,7 @@ define(['knockout'], function(ko) {
         self.year = ko.observable();
         self.total = ko.observable();
         self.average = ko.observable();
+        self.spending = ko.observable();
 
         self.date = ko.pureComputed(function(){
 	        return self.month() + '/' + self.year();
