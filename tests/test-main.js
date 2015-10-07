@@ -24,10 +24,14 @@ require.config({
   "paths": {
         'jquery': '/base/vendor/jquery/dist/jquery.min',
         'knockout': '/base/vendor/knockout/dist/knockout',
-        'dayViewModel': '/base/day/dayVM',
-        'daysViewModel': '/base/days/daysVM',
+        'moment': '/base/vendor/moment/moment',
+        'malihu': '/base/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar',
+        'firebase': '/base/vendor/firebase/firebase',
+        'config': '/base/app/config',
+        'dayViewModel': '/base/app/day/dayVM',
+        'daysViewModel': '/base/app/days/daysVM',
         'monthViewModel': '/base/app/month/monthVM',
-        'monthsViewModel': '/base/months/monthsVM'
+        'monthsViewModel': '/base/app/months/monthsVM'
     },
     "shim": {
         'knockout': {

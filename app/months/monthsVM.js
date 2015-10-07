@@ -9,17 +9,14 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
 
         self.months = ko.observableArray([]);
 
-		
-		spending.orderByChild("date").on("child_added", function(snapshot){
-		    var spent = snapshot.val(),
-		    	year = new Date(spent.date).getFullYear(),
-		    	n_month = new Date(spent.date).getMonth() + 1,
-		    	total = 0,
-		    	_month = new month(),
-		    	last = self.months().length > 0 ? self.months()[self.months().length - 1] : undefined;
+        self._add_month = function(spent){
+        	var year = new Date(spent.date).getFullYear(),
+	    		n_month = new Date(spent.date).getMonth() + 1,
+	    		total = 0,
+	    		_month = new month(),
+	    		last = self.months().length > 0 ? self.months()[self.months().length - 1] : undefined;
 
-			
-			if(last && (last_month === n_month && last_year === year)){
+    		if(last && (last_month === n_month && last_year === year)){
 				last.total(last.total() + parseFloat(spent.value));
 				
 				count = count + 1;
@@ -38,7 +35,14 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
 			}
 
 			last_month = n_month;
-			last_year = year;
+			last_year = year;	
+        };
+
+		
+		spending.orderByChild("date").on("child_added", function(snapshot){
+		    var spent = snapshot.val();
+
+			self._add_month(spent);
 		},
 		function(errorObject){
 		    console.log("The read failed: " + errorObject.code);

@@ -24,8 +24,7 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
-        'app/init.js',
-        'app/config.js'
+        'app/init.js'
     ],
 
 
