@@ -17,7 +17,7 @@ define(['knockout', 'firebase', 'moment', 'config', 'dayViewModel'], function(ko
 		    	_day.item(spent.item);
 		    	_day.value('$ ' +  parseFloat(spent.value).toFixed(2));
 
-		    	total = self.today_total() + parseFloat(spent.value);
+		    	total = parseFloat(self.today_total()) + parseFloat(spent.value);
 
 		    	self.days.push(_day);
 	    	}
@@ -28,7 +28,7 @@ define(['knockout', 'firebase', 'moment', 'config', 'dayViewModel'], function(ko
     	spending.orderByChild("date").equalTo(today).on("child_added", function(snapshot){
 		    var spent = snapshot.val();
 
-		    _addToday(spent);		    
+		    self._addToday(spent);		    
 		},
 		function(errorObject){
 		    console.log("The read failed: " + errorObject.code);
