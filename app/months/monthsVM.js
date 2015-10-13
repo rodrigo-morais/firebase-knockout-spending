@@ -30,6 +30,7 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
 				last.average(last.total() / last.spending());
 			}
 			else{
+				_month.month_date(new Date(year, n_month, 1));
 				_month.month(month_name);
 				_month.year(year);
 				_month.total(parseFloat(spent.value));
@@ -42,9 +43,16 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
 
 		
 		spending.orderByChild("date").on("child_added", function(snapshot){
-		    var spent = snapshot.val();
+		    var spent = snapshot.val(),
+		    	_months = [];
 
 			self._add_month(spent);
+
+			_months = self.months().sort(function(prev, next){
+				return next.month_date() - prev.month_date();
+			});
+
+			self.months(_months);
 		},
 		function(errorObject){
 		    console.log("The read failed: " + errorObject.code);

@@ -3,6 +3,7 @@ define(['knockout'], function(ko) {
         var self = this;
 
         self.month = ko.observable();
+        self.month_date = ko.observable();
         self.year = ko.observable();
         self.total = ko.observable();
         self.average = ko.observable();
