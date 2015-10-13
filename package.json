@@ -4,6 +4,7 @@
   "description": "An app to control spending. This app is used to test features of Firebase developing with KnockoutJS.",
   "homepage": "https://github.com/rodrigo-morais/firebase-knockut-spending",
   "main": "./index.html",
+  "readme": "README.md",
   "scripts": {
     "test": "grunt test"
   },
