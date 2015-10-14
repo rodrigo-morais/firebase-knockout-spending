@@ -49,9 +49,9 @@
 
 	    <div class="panel panel-primary col-md-12">
 	        <div class="panel-heading">List of spendings per month</div>
-	        <div class="panel-body">
+	        <div class="panel-body months">
 	            <div id="monthly">
-	                <ul class="months" data-bind="foreach: months">
+	                <ul data-bind="foreach: months">
 	                	<li>
 	                		<span class="label">Month:</span><span class="value" data-bind="text: date"></span>
     						<span class="label">Total:</span><span class="value" data-bind="text: total"></span>
@@ -60,7 +60,7 @@
 	                </ul>
 	            </div>
 	            <div class="total">
-	                <label>Total:</label><span id="total"></span>
+	                <label>Total:</label><span id="total" data-bind="text: total"></span>
 	                <label>Average:</label><span id="average"></span>
 	            </div>
 	        </div>

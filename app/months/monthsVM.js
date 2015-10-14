@@ -5,6 +5,11 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
         	spending = new Firebase(firebase_url);
 
         self.months = ko.observableArray([]);
+        self.total = ko.computed(function(){
+        	return self.months().reduce(function(previous, _month){
+        		return previous + _month.total();
+        	}, 0).toFixed(2);
+        });
 
         self._add_month = function(spent){
         	var date = new Date(spent.date),
@@ -27,7 +32,7 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
 				last.total(last.total() + parseFloat(spent.value));
 				last.spending(last.spending() + 1);
 
-				last.average(last.total() / last.spending());
+				last.average(last.total() / last.spending());			
 			}
 			else{
 				_month.month_date(new Date(year, n_month, 1));
