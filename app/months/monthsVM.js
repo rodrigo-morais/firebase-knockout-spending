@@ -2,13 +2,22 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
     return function monthsViewModel() {
         var self = this,
         	firebase_url = new config().url,
-        	spending = new Firebase(firebase_url);
+        	spending = new Firebase(firebase_url),
+        	month_qty = 0;
 
         self.months = ko.observableArray([]);
         self.total = ko.computed(function(){
         	return self.months().reduce(function(previous, _month){
         		return previous + _month.total();
         	}, 0).toFixed(2);
+        });
+
+        self.average = ko.computed(function(){
+        	if(isNaN(self.total()) || month_qty <= 0){
+        		return '0.00';
+        	}
+
+        	return (self.total() / month_qty).toFixed(2);
         });
 
         self._add_month = function(spent){
@@ -43,6 +52,8 @@ define(['knockout', 'firebase', 'moment', 'config', 'monthViewModel'], function(
 				_month.spending(1);
 
 				self.months.push(_month);
+
+				month_qty = month_qty + 1;
 			}
         };
 
